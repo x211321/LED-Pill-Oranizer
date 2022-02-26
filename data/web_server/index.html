@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+		<script type="text/javascript" src="./load_settings.js"></script>
+		<script type="text/javascript" src="./pillbox.js"></script>
+		<link rel="stylesheet" href="./style.css">
+		<link rel="shortcut icon" href="data:image/x-icon;base64,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If/trCH/7awh/+2sIUntrCGV7awh/+2sIf/trCH/7awh/+2sIebtrCES7awhAAAAAAAAAAAA7awhAe2sIePtrCH/7awh/+2sIf/trCGd7awhAdufHgAAAAAAAAAAAAAAAAAAAAAAAAAAAO2sIQDtrCE17awh/u2sIf/trCH/7awh/+2sIfrtrCE57awhAO2sIQHtrCGe7awh/+2sIf/trCH/7awh/+2sIfHtrCEN7awhAAAAAADtrCEA7awhUe2sIf/trCH/7awh/+2sIf/trCGe7awhAAAAAAAAAAAAAAAAAAAAAADtrCEA7awhSe2sIf7trCH/7awh/+2sIf/trCH/7awhQu2sIQAAAAAA258eAO2sIQDtrCGK7awh/+2sIf/trCH/7awh/+2sIeHtrCEKAAAAAAAAAADtrCEK7awh4e2sIf/trCH/7awh/+2sIf/trCGK7awhANufHgAAAAAA7awhAO2sIULtrCH/7awh/+2sIf/trCH/7awh/u2sIUntrCEAAAAAAAAAAAAAAAAAAAAAAO2sIQDtrCGe7awh/+2sIf/trCH/7awh/+2sIVHtrCEAAAAAAO2sIQDtrCEN7awh8e2sIf/trCH/7awh/+2sIf/trCGe7awhAe2sIQDtrCE57awh+u2sIf/trCH/7awh/+2sIf7trCE17awhAAAAAAAAAAAAAAAAAAAAAAAAAAAA258eAO2sIQHtrCGV7awh/+2sIf/trCH/7awh4+2sIQEAAAAAAAAAAO2sIQDtrCES7awh5u2sIf/trCH/7awh/+2sIf/trCGV7awhSe2sIf/trCH/7awh/+2sIf/trCH/7awhSe2sIQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO2sIQDtrCH/7awh/+2sIf/trCH/7awhUgAAAAAAAAAAAAAAAO2sIQDtrCEG7awh5u2sIf/trCH/7awh/+2sIf/trCH97awh/+2sIf/trCH/7awh+u2sIULtrCEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA7awhAO2sITjtrCH/7awh/+2sIf/trCF1AAAAAAAAAAAAAAAAAAAAAO2sIQDtrCES7awh8e2sIf/trCH/7awh/+2sIf/trCH/7awh/+2sIf/trCE57awhAAAAAAAAAAAAAAAAAAAA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" />
+		<title>PillBox Einstellungen</title>
+	</head>
+	<body>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+		<div id="mainContainer">
+			<div id="headerContainer">
+				<h1>PillBox Einstellungen</h1>
+			</div>
+			
+			<div class="tab">
+				<button id="detaultTab" class="tabButton" onclick="openTabPage(event, 'basicSettings')">Einnahmezeiten</button>
+				<button class="tabButton" onclick="openTabPage(event, 'advancedSettings')">Auffülltag</button>
+				<button class="tabButton" onclick="openTabPage(event, 'networkSettings')">Netzwerk</button>
+				<button class="tabButton" onclick="openTabPage(event, 'notificationSettings')">Benachrichtigungen</button>
+				<button class="tabButton" onclick="openTabPage(event, 'ledSettings')">LED</button>
+				<button class="tabButton" onclick="openTabPage(event, 'devSettings')">Entwicklung</button>
+			</div>
+
+			<div id="settingsFormContainer">
+				<form id="settingsForm" action="/apply" method="post" target="dummy">
+
+
+					<!-- BASIC SETTINGS -->
+					<div id="basicSettings" class="tabContent">
+						<label class="settingsFormSection">Einnahmezeiten</label>
+
+						<div class="settingsFormRow">
+							<label class="settingsFormLabelTop" for="intakeMorning">Morgens</label>
+							<input type="time" id="intakeMorning" name="intakeMorning"/>
+						</div>
+						<div class="settingsFormRow">
+							<label class="settingsFormLabelTop" for="intakeMidday">Mittags</label>
+							<input type="time" id="intakeMidday" name="intakeMidday"/>
+						</div>
+					
+						<div class="settingsFormRow">
+							<label class="settingsFormLabelTop" for="intakeEvening">Abends</label>
+							<input type="time" id="intakeEvening" name="intakeEvening"/>
+						</div>
+						<div class="settingsFormRow">
+							<label class="settingsFormLabelTop" for="intakeNight">Nachts</label>
+							<input type="time" id="intakeNight" name="intakeNight"/>
+						</div>
+					</div>
+
+
+					<!-- ADVANCED SETTINGS -->
+					<div id="advancedSettings" class="tabContent">
+						<label class="settingsFormSection">Auffülltag</label>
+						
+						<div class="settingsFormRow">
+							<label class="settingsFormLabelTop" for="fillDay">Wochentag</label>
+							<select id="fillDay" name="fillDay">
+								<option value="1">Montag</option>
+								<option value="2">Dienstag</option>
+								<option value="3">Mittwoch</option>
+								<option value="4">Donnerstag</option>
+								<option value="5">Freitag</option>
+								<option value="6">Samstag</option>
+								<option value="0">Sonntag</option>
+							</select>
+						</div>
+						<div class="settingsFormRow">
+							<label class="settingsFormLabelTop" for="fillTime" >Uhrzeit</label>
+							<input type="time" id="fillTime" name="fillTime"/>
+						</div>
+					</div>
+
+
+					<!-- NETWORK SETTINGS -->
+					<div id="networkSettings" class="tabContent">
+						<label class="settingsFormSection">WLAN</label>
+
+						<div class="settingsFormRow">
+							<label class="settingsFormLabelTop" for="wifiSSID">SSID</label>
+							<input type="text" id="wifiSSID" name="wifiSSID"/>
+						</div>
+						<div class="settingsFormRow">
+							<label class="settingsFormLabelTop" for="wifiPass">Passwort</label>
+							<input type="password" id="wifiPass" name="wifiPass"/>
+						</div>
+						<div class="settingsFormRow">
+							<label class="settingsFormLabelTop" for="backendServer">Backend Server</label>
+							<input type="url" id="backendServer" name="backendServer"/>
+						</div>
+					</div>
+
+
+					<!-- NOTIFICATION SETTINGS -->
+					<div id="notificationSettings" class="tabContent">
+						<label class="settingsFormSection">Benachrichtigungen</label>
+						
+						<div class="settingsFormRow">
+							<label class="settingsFormLabelTop" for="notifyMail">E-Mail Adresse</label>
+							<input type="email" id="notifyMail" name="notifyMail"/>
+						</div>
+
+						<div class="settingsFormRow">
+							<label class="settingsFormLabelTop" for="notifySignal">Signal Tel.</label>
+							<input type="tel" id="notifySignal" name="notifySignal"/>
+						</div>
+
+						<div class="settingsFormRow">
+							<label class="settingsFormLabelTop" for="signalApiKey">Signal API-Key (CallMeBot)</label>
+							<input type="text" id="signalApiKey" name="signalApiKey"/>
+						</div>
+
+						<div class="settingsFormRow">
+							<label class="settingsFormLabelTop" for="personalName">Name</label>
+							<input type="text" id="personalName" name="personalName"/>
+						</div>
+
+						<div class="settingsFormRow">
+							<label class="settingsFormLabelTop" for="reminderInterval">Erinnerung alle</label>
+							<input type="number" min="0" step="1" id="reminderInterval" name="reminderInterval"/>
+							<label for="morningStart">Minuten</label>
+						</div>
+					</div>
+
+
+					<!-- LED SETTINGS -->
+					<div id="ledSettings" class="tabContent">
+						<label class="settingsFormSection">LED-Einstellungen</label>
+
+						<div class="settingsFormRow">
+							<label class="settingsFormLabelTop" for="ledBrightness">LED Helligkeit</label>
+							<input type="range" id="ledBrightness" name="ledBrightness" min="1" max="255">
+						</div>
+
+						<div class="settingsFormRow">
+							<label class="settingsFormLabelTop">LED Farbe für neusten Einnahmetermin</label>
+							<input type="color" id="ledNewNotificationColor" name="ledNewNotificationColor">
+						</div>
+
+						<div class="settingsFormRow">
+							<label class="settingsFormLabelTop">LED Farbe für verpasste Einnahmetermine</label>
+							<input type="color" id="ledMissedNotificationColor" name="ledMissedNotificationColor">
+						</div>
+
+						<div class="settingsFormRow">
+							<label class="settingsFormLabelTop">LED Farbe für bestätigte Einnahmetermine</label>
+							<input type="color" id="ledConfirmedIntakesColor" name="ledConfirmedIntakesColor">
+						</div>
+
+						<div class="settingsFormRow">
+							<label class="settingsFormLabelTop">LED Farbe für kommende Einnahmetermine</label>
+							<input type="color" id="ledUpcomingIntakesColor" name="ledUpcomingIntakesColor">
+						</div>
+
+						<div class="settingsFormRow">
+							<label class="settingsFormLabelTop">LED Farbe zur Auffüllzeit</label>
+							<input type="color" id="fillTimeNotificationColor" name="fillTimeNotificationColor">
+						</div>
+
+						<div class="settingsFormRow">
+							<label class="settingsFormLabelTop" for="ledOrder">LED Reihenfolge</label>
+							<select id="ledOrder" name="ledOrder">
+								<option value="0">Morgen oben</option>
+								<option value="1">Nacht oben</option>
+							</select>
+						</div>
+					</div>
+
+
+					<!-- DEV SETTINGS -->
+					<div id="devSettings" class="tabContent">
+						<label class="settingsFormSection">Entwicklung</label>
+
+						<div class="settingsFormRow">
+							<button class="devButton" type="submit" name="testConfirm" value="1">Aktuellen Zustand bestätigen</button>
+						</div>
+
+						<div class="settingsFormRow">
+							<button class="devButton" type="submit" name="testIntake" value="1">Einnahmetermin erzeugen</button>
+						</div>
+
+						<div class="settingsFormRow">
+							<button class="devButton" type="submit" name="testFillTime" value="1">Auffülltag umschalten</button>
+						</div>
+
+						<div class="settingsFormRow">
+							<button class="devButton" type="submit" name="testScheduleLEDs" value="1">Termin LEDs testen</button>
+						</div>
+
+						<div class="settingsFormRow">
+							<button class="devButton" type="submit" name="testSignal" value="1">Signal Messenger testen</button>
+						</div>
+
+						<div class="settingsFormRow">
+							<button class="devButton" type="submit" name="testMail" value="1">E-Mail testen</button>
+						</div>
+					</div>
+
+					<input type="hidden" id="save" name="save" value="1"/>
+
+					<button type="submit" id="saveButton" name="saveButton" value="1">Speichern</button>
+				</form>
+			</div>
+		</div>
+
+		<iframe name="dummy" style="display:none;"></iframe>
+	</body>
+</html>
