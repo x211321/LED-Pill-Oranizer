@@ -86,8 +86,8 @@ String notification_format_phone(String phone)
       return "+49" + phone.substring(1, phone.length());
     }else if (phone.substring(0, 1) == "+"){
       return phone;
-    }else{
-      return "";
     }
   }
+  
+  return "";
 }

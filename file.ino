@@ -39,6 +39,8 @@ String file_read(String filePath)
   }else{
     debug("Open file " + filePath + " FAILED");
   }
+
+  return "";
 }
 
 

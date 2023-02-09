@@ -24,4 +24,6 @@ String http_get(String url)
   }
 
   http.end();
+
+  return "";
 }

@@ -453,6 +453,8 @@ int schedule_get_minutes_from_intake_id(String intakeId)
   if (intakeId.length() >= INTAKE_ID_LEN) {
     return intakeId.substring(14, 16).toInt();
   }
+
+  return 0;
 }
 
 
@@ -462,6 +464,8 @@ String schedule_get_unique_intake_id_from_intake_id(String intakeId)
   if (intakeId.length() >= INTAKE_ID_LEN) {
     return intakeId.substring(0, UNIQUE_INTAKE_ID_LEN-1);
   }
+
+  return "";
 }
 
 
@@ -498,32 +502,48 @@ String schedule_get_schedule_name(int schedule)
   if (schedule == SCHEDULE_NIGHT) {
     return "Nacht";
   }
+
+  return "";
 }
 
 
 // Compares current time to given match time
-bool schedule_check_match(String matchTime) {  
-  if (tm.tm_hour == time_get_hours_from_time_string(matchTime).toInt() &&
-      tm.tm_min  == time_get_minutes_from_time_string(matchTime).toInt()) {
+bool schedule_check_match(String matchTime) {
 
-    return true;        
-  }else{
+  int matchTimeHours   = time_get_hours_from_time_string(matchTime).toInt();
+  int matchTimeMinutes = time_get_minutes_from_time_string(matchTime).toInt();
+
+  if (matchTimeHours == 0 && matchTimeMinutes == 0) {
     return false;
   }
+  
+  if (tm.tm_hour == matchTimeHours &&
+      tm.tm_min  == matchTimeMinutes) {
+
+    return true;        
+  }
+    
+  return false;
 }
 
 
 // Checks whether a specific match time has alread passed
 bool schedule_check_past_match(String matchTime) {
-  if (tm.tm_hour > time_get_hours_from_time_string(matchTime).toInt() ||
-     (tm.tm_hour == time_get_hours_from_time_string(matchTime).toInt() &&
-      tm.tm_min >= time_get_minutes_from_time_string(matchTime).toInt())) {
 
-    return true;        
-  }else{
-    
+  int matchTimeHours   = time_get_hours_from_time_string(matchTime).toInt();
+  int matchTimeMinutes = time_get_minutes_from_time_string(matchTime).toInt();
+
+  if (matchTimeHours == 0 && matchTimeMinutes == 0) {
     return false;
   }
+  
+  if (tm.tm_hour > matchTimeHours ||
+     (tm.tm_hour == matchTimeHours && tm.tm_min >= matchTimeMinutes)) {
+
+    return true;        
+  }
+
+  return false;
 }
 
 
@@ -671,4 +691,6 @@ int schedule_translate_led(int schedule_led)
       return led_order_top_bottom[schedule_led];
     }
   }
+
+  return 0;
 }

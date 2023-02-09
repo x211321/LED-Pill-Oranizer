@@ -13,6 +13,8 @@ String time_get_hours_from_time_string(String time_string)
   if (time_string.length() >= 5) {
     return time_string.substring(0, 2);
   }
+
+  return "";
 }
 
 String time_get_minutes_from_time_string(String time_string)
@@ -22,6 +24,8 @@ String time_get_minutes_from_time_string(String time_string)
   if (time_string.length() >= 5) {
     return time_string.substring(3, 5);
   }
+
+  return "";
 }
 
 bool time_is_dst()
@@ -34,7 +38,7 @@ bool time_is_dst()
 
   if (tm_.tm_isdst > 0) {
     return true;
-  }else{
-    return false;
   }
+    
+  return false;
 }

@@ -6,10 +6,6 @@ Adafruit_NeoPixel led_strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN);
 void init_led() 
 {
   byte brightness = get_setting("ledBrightness").toInt();
-
-  if (brightness == 0) {
-    brightness = 30;
-  }
   
   led_strip.begin();
   led_set_brightness(brightness);
@@ -96,6 +92,8 @@ String led_get_section_from_hex_string(String hexString, int sectionStart, int s
 
     return hexString.substring(sectionStart+offset, sectionEnd+offset);
   }
+
+  return "";
 }
 
 void led_chase_animation()
